@@ -42,6 +42,6 @@ export default class Currency {
   /* methods */
   displayFullCurrency() {
     /* returns the attributes in designated format */
-    return `${this._name} (${this._code})`
+    return `${this._name} (${this._code})`;
   }
 }
