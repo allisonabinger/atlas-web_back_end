@@ -5,7 +5,7 @@ export default function updateStudentGradeByCity(studentList, city, newGrades) {
   const updatedStudents = studentsInCity.map((student) => {
     /* search for newGrade by student id using find */
     const newGrade = newGrades.find((ng) => ng.studentId === student.id);
-    /* return new student object with new grade if it exists */
+    /* return new student object with new grade if it exists, new entry for arr */
     return { ...student, grade: newGrade ? newGrade.grade : 'N/A' };
   });
   return updatedStudents;
