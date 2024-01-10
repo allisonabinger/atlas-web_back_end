@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 export default function handleResponseFromAPI(promise) {
   // Prompt:
   // when promise resolves, return response object
@@ -9,9 +10,9 @@ export default function handleResponseFromAPI(promise) {
     // i may not use this again because it was so tricky
     console.log('Got a response from the API');
     return handler(...args);
-  }
+  };
   promise.then(
-    logAndReturn((value) => ({ status: 200, body: 'success'})),
-    logAndReturn((reason) => new Error())
+    logAndReturn((value) => ({ status: 200, body: 'success' })),
+    logAndReturn((reason) => new Error()),
   );
 }
