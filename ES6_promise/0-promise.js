@@ -1,4 +1,4 @@
-export default function getResponseFromAPI(){
+export default function getResponseFromAPI() {
   const myPromise = new Promise((resolve, reject) => {
     const test = true;
     if (test) {
@@ -7,5 +7,5 @@ export default function getResponseFromAPI(){
       reject(new Error('Failure'));
     }
   });
-  return myPromise
+  return myPromise;
 }
