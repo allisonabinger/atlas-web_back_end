@@ -3,9 +3,9 @@
 from typing import Callable
 
 
-def make_multiplier(muliplier: float) -> Callable[[float], float]:
+def make_multiplier(multiplier: float) -> Callable[[float], float]:
     """ returns function that multiplies float by given multiplier"""
     def multiplier_function(x: float) -> float:
         """ multiplies float by multiplier """
-        return x * muliplier
+        return x * multiplier
     return multiplier_function
