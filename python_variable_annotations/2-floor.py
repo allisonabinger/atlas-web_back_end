@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """ Type Annotated function that returns floor of float n """
 import math
 
