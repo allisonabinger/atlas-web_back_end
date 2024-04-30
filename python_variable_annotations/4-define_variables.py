@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+""" Defines 4 Variables """
 
 
 a: int = 1
