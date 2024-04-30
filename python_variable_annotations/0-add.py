@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" Type-annotated function that adds two floats and returns their sum as a float """
+""" Type-annotated function: adds two floats & returns sum as float """
 
 
 def add(a: float, b: float) -> float:
