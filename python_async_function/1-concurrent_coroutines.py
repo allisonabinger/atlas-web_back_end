@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """executes concurrent coroutines with async"""
 from typing import List
+import asyncio
 wait_random = __import__('0-basic_async_syntax').wait_random
 
 
@@ -9,9 +10,6 @@ async def wait_n(n: int, max_delay: int) -> List[float]:
     delays = []
 
     for _ in range(n):
-        delay = await wait_random(max_delay)
-        i = 0
-        while i < len(delays) and delays[i] < delay:
-            i += 1
-        delays.insert(i, delay)
-    return delays
+        delays.append(asyncio.create_task(wait_random(max_delay)))
+
+    return [await index for index in asyncio.as_completed(delays)]
