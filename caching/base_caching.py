@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-""" BaseCaching module
-"""
+""" BaseCaching module"""
+
 
 class BaseCaching():
     """ BaseCaching defines:
