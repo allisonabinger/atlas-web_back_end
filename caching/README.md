@@ -52,9 +52,11 @@ LIFO, also known as the stack, is another data structure and eviction policy whe
 LRU replaces the item not requested for the longest time. It is implemented using a timestamp for last access. It requires some extra memory and needs to update the timestamps in the cache. It can better consider which items in the cache have been recently useful, and make it perform well when items are used frequently for a while, and then usage drops. 
 
 **When to Use**
+
 When you want to keep the most recently accessed data in the cache and evict the least recently accessed data when the cache is full. 
 
 **Use Cases** 
+
 Web servers - cache frequently acessed web pages or resources to reduce load time for users to ensure the cache stays up-to-date with user access patterns
 
 Database query caching - cache the results of frequently executed database queries to avoid redundant query executions and prioritize recent and relevant data.
@@ -63,9 +65,11 @@ Database query caching - cache the results of frequently executed database queri
 MRU is an eviction policy that replaces the cache element used most recently, as if it is the opposite of LRU, except it still needs the same data and is similar to implement. It is useful in situations where the longer an item hasn't been used, the more likely it will come up next.
 
 **When to Use**
+
 Whenever you need to prioritize recent data access over older data access, especially where the most recent data tends to be more relevant or frequently accessed.
 
 **Use Cases** 
+
 Media Server - If the user has completed watching a video, they are most likely not going to want to view it again. 
 
 
@@ -73,9 +77,11 @@ Media Server - If the user has completed watching a video, they are most likely 
 LFU is an eviction policy in which the item in the cache used the least since its entry will be removed. It does not require access time storage, instead it stores the number of accesses since entry. It stores a counter instead of a timestamp.
 
 **When to Use**
+
 Whenever you need to prioritize caching items that are accessed frequently over those that are accessed infrequently, such as scenarious where the frequency of access is a more important factor than recency.
 
 **Use Cases** 
+
 Content recommendation systems - cache user preferences or item ratings to personalize content recommendations. Evicting less frequently accessed items ensures that the cache adapts to changing user preferences over time. 
 
 File system caching - cache frequently accessed files or blocks to speed up file systems operations. Evicting files that are rarely accessed helps optimize storage usage and cache performance. 
