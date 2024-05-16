@@ -92,24 +92,95 @@ File system caching - cache frequently accessed files or blocks to speed up file
 
 # Code Examples and Highlighted Tasks
 
-## Code / Task
-[**See Task Here**](task-link)
+## FIFO / LIFO
+[**Utilizing FIFO**](1-fifo_cache.py)
 
-### Example
+Inside of the FIFOCache class, there is a `self.queue` list that will keep track of each item as it is put into the cache_data. The `put` method will check to make sure the cache_data doesn't have the maximum amount of items before putting it into the `cache_data`. If it does, it will use `pop(0)` to assign a key to discard to the first item, and then discard it using `del`. After that, it can assign a new key-item pair and append it to the queue.
+
 ```
 {
-	// insert code here
-}
+    def put(self, key, item):
+    
+        // see file for full method
 
-(explanation of code)
+        if len(self.cache_data) >= self.MAX_ITEMS:
+            discarded_key = self.queue.pop(0)
+            del self.cache_data[discarded_key]
+            print(f"DISCARD: {discarded_key}")
+}
 ```
+
+------
+
+[**Utilizing LIFO**](2-lifo_cache.py)
+
+The LIFOCache class does the same thing that the FIFOCache class does, the only difference is the `pop()` method. Since it doesn't call `pop(0)`, it will assign the removal key to the last item. 
+
 ```
 {
-	// insert code here
-}
+    def put(self, key, item):
+    
+        // see file for full method
 
-(explanation of code)
+        if len(self.cache_data) >= self.MAX_ITEMS:
+            discarded_key = self.queue.pop()
+            del self.cache_data[discarded_key]
+            print(f"DISCARD: {discarded_key}")
+}
 ```
+
+------
+
+## LRU / MRU
+[**Utilizing LRU**](3-lru_cache.py)
+
+Inside of the LRUCache class, it is similar to FIFO and LIFO, except it will keep track of an `access_order` list that will be updated whenever an item is added with `put` or accessed with `get`. For LRU, it will remove the least accessed item with `pop(0)`. 
+
+```
+{
+    def put(self, key, item):
+        // see file for full method
+
+        """if the key is already there, it will remove the access order"""
+        if key in self.cache_data:
+            self.access_order.remove(key)
+
+        elif len(self.cache_data) >= self.MAX_ITEMS:
+            """uses pop to get key and delete least recently used item"""
+            lru_key = self.access_order.pop(0)
+            del self.cache_data[lru_key]
+            print(f"DISCARD: {lru_key}")
+
+    def get(self, key):
+        """searchs for an item with a valid key input + updates the order"""
+        if key is not None and key in self.cache_data:
+            self.access_order.remove(key)
+            self.access_order.append(key)
+            return self.cache_data[key]
+        return None
+}
+```
+
+------
+
+[**Utilizing MRU**](4-mru_cache.py)
+
+The MRUCache class does the same thing as LRU, but similar to LIFO, it will remove the most recently accessed item with `pop()`. 
+
+```
+{
+    def put(self, key, item):
+
+        // see file for full method
+
+        elif len(self.cache_data) >= self.MAX_ITEMS:
+            """uses pop to get key and delete least recently used item"""
+            lru_key = self.access_order.pop(0)
+            del self.cache_data[lru_key]
+            print(f"DISCARD: {lru_key}")
+}
+```
+
 
 &nbsp;
 ---
