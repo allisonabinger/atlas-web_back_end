@@ -1,7 +1,7 @@
   <h1 align="center">
-  <img src="https://static.thenounproject.com/png/5075548-200.png" align="left" width="50">
+  <img src="https://static-00.iconduck.com/assets.00/cache-icon-2048x1986-kwtj7znt.png" align="left" width="50">
    Caching - Python
-  <img src="https://static.thenounproject.com/png/5075548-200.png" align="right" width="50"></h1>
+  <img src="https://static-00.iconduck.com/assets.00/cache-icon-2048x1986-kwtj7znt.png" align="right" width="50"></h1>
 
 
 ## Intro
