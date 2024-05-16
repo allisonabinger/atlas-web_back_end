@@ -23,6 +23,7 @@ This project consists of several tasks designed to build an intermediate underst
 ---
 &nbsp;
 &nbsp;
+&nbsp;
 
 # Concepts
 
@@ -44,7 +45,7 @@ FIFO is a data structure and an eviction policy used in caching systems where th
 ### LIFO: Last-In-First-Out
 LIFO, also known as the stack, is another data structure and eviction policy where the newest items are removed first.
 
-## LRU, MRU, 
+## LRU, MRU, LFU
 [*Code Academy: Cache Eviction Policies*](https://www.codecademy.com/article/cache-eviction-policies)
 
 ### LRU: Least Recently Used
@@ -78,6 +79,15 @@ Whenever you need to prioritize caching items that are accessed frequently over 
 Content recommendation systems - cache user preferences or item ratings to personalize content recommendations. Evicting less frequently accessed items ensures that the cache adapts to changing user preferences over time. 
 
 File system caching - cache frequently accessed files or blocks to speed up file systems operations. Evicting files that are rarely accessed helps optimize storage usage and cache performance. 
+
+&nbsp;
+---
+&nbsp;
+
+# Code Examples and Highlighted Tasks
+
+## Code / Task
+[**See Task Here**](task-link)
 
 ### Example
 ```
