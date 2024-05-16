@@ -1,7 +1,13 @@
 #!/usr/bin/env python3
-"""
-Helper Function to take page and page_size and
-return a tuple of size two containing a start index and an end index
-corresponding to the range of indexes to return in a list for
-those particular pagination parameters.
-"""
+""" Task 0: Simple Helper Function """
+
+
+def index_range(page: int, page_size: int) -> tuple:
+    """returns a tuple with the start and end index corresponding
+    to the range of indices to return in a list for the pagination parameters
+    given as page and page_size"""
+
+    start_index = (page - 1) * page_size
+    end_index = page * page_size - 1
+
+    return start_index, end_index
