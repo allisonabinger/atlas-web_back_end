@@ -4,6 +4,8 @@ BaseCaching = __import__('base_caching').BaseCaching
 
 
 class FIFOCache(BaseCaching):
+    """Inherits from BaseCaching -
+    Uses queue to implement FIFO eviction policies"""
     def __init__(self):
         """initiation"""
         super().__init__()
