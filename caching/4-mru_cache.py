@@ -22,7 +22,7 @@ class MRUCache(BaseCaching):
 
         elif len(self.cache_data) >= self.MAX_ITEMS:
             """uses pop to get key and delete most recently used item"""
-            mru_key = self.access_order.pop(0)
+            mru_key = self.access_order.pop()
             del self.cache_data[mru_key]
             print(f"DISCARD: {mru_key}")
 
