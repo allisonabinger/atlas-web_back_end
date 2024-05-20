@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Task 1: Simple Pagination"""
+"""Task 2: Hypermedia Pagination"""
 
 
 import csv
