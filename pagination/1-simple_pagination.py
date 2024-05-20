@@ -40,13 +40,15 @@ class Server:
         """finds the indices to paginate the dataset and return the
         appropriate page of the dataset (i.e. the correct list of rows)"""
 
+        """Assures the input passed is valid"""
         assert isinstance(page, int) and page > 0, "Page = int > 0."
         assert isinstance(page_size, int) and page_size > 0, "PSize = int > 0"
 
+        """retrieve dataset"""
         dataset = self.dataset()
+
+        """retrieve start and end indices"""
         start_index, end_index = index_range(page, page_size)
 
-        if start_index >= len(dataset):
-            return
-
+        """returns page of dataset based on start and end indices """
         return dataset[start_index:end_index]
