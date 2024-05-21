@@ -8,10 +8,15 @@ from flask import Flask, jsonify, abort, request
 from flask_cors import (CORS, cross_origin)
 import os
 
-
 app = Flask(__name__)
 app.register_blueprint(app_views)
 CORS(app, resources={r"/api/v1/*": {"origins": "*"}})
+auth = None
+
+auth_type = os.getenv('AUTH_TYPE')
+if auth_type:
+    from api.v1.auth.auth import Auth
+    auth = Auth()
 
 
 @app.errorhandler(404)
@@ -36,6 +41,26 @@ def forbidden(error) -> str:
     When an authenticated user attempts to access a forbidden resource
     """
     return jsonify({"error": "Forbidden"}), 403
+
+
+@app.before_request
+def before_request():
+    """Checks authentication before running request"""
+    if auth is None:
+        return
+
+    """checking if path requires authentication"""
+    if auth.require_auth(request.path,
+                         ['/api/v1/status/',
+                          '/api/v1/unauthorized/',
+                          '/api/v1/forbidden/']):
+        """if it does (require_auth returns true)"""
+        if auth.authorization_header(request) is None:
+            """must have authorization header"""
+            abort(401)
+        if auth.current_user(request) is None:
+            """must be valid user authorized to access"""
+            abort(403)
 
 
 if __name__ == "__main__":
