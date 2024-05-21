@@ -22,15 +22,22 @@
 &nbsp;
 &nbsp;
 
-# Concepts
+# Concepts:
+
+[**Regex-ing**](https://www.w3schools.com/python/python_regex.asp)
+Utilizing regular expressions for pattern matching and filtering within log messages.
+
+[**Obfuscation**](https://en.wikipedia.org/wiki/Obfuscation_(software))
+Creating source or machine code that is difficult for humans or computers to understand, which in this context is for concealing. See [**Security through Obscurity**](https://en.wikipedia.org/wiki/Security_through_obscurity)
+
 
 ## Resources and Descriptions
-[**Concept**](Link)
+[**What is PII, non-PII, and Personal Data?**](https://piwik.pro/blog/what-is-pii-personal-data/)
 
-[**Concept**](Link)
+[**Logging facility for Python**](https://docs.python.org/3/library/logging.html)
 
-## Concept 
-## Concept
+[**bcrypt Packag - Password Hashing**](https://github.com/pyca/bcrypt/)
+
 
 &nbsp;
 ---
@@ -38,16 +45,28 @@
 
 # Code Examples and Highlighted Tasks
 
-## Concept/Task
-[**Task**](file)
+## Filtered Logger
+[**filtered_logger.py**](filtered_logger.py)
 
-Explaination
+The functionality of this file is to demonstrate secure logging practices in Python, including regex-based obfuscation or sensitive data fields in log messages and secure connection to a MySQL database.
 
-```
-{
-    // code snippet
-}
-```
+### Concepts Used
+**Regex-ing**
+The project utilizes regular expressions (re module) for pattern matching and filtering within log messages to obfuscate sensitive information such as names, emails, phone numbers, SSNs, and passwords.
+
+**Obfuscating Log Messages**
+The filter_datum function is used to replace occurrences of specified field values with a redaction string in log messages, ensuring sensitive data is not exposed.
+
+**Logging Facility in Python**
+Python's logging module is employed to create a custom RedactingFormatter class, which formats log records and integrates the filter_datum function to obfuscate sensitive data fields before logging.
+
+**bcrypt Package**
+While not explicitly demonstrated in this script, bcrypt is commonly used for secure password hashing and authentication purposes in Python applications.
+
+**Connecting to a Secure Database**
+The project securely connects to a MySQL database using mysql.connector, retrieving credentials from environment variables (PERSONAL_DATA_DB_USERNAME, PERSONAL_DATA_DB_PASSWORD, PERSONAL_DATA_DB_HOST, PERSONAL_DATA_DB_NAME) to ensure secure database access.
+
+
 
 &nbsp;
 ---
