@@ -1,13 +1,13 @@
   <h1 align="center">
-  <img src="https://cdn-icons-png.flaticon.com/512/1287/1287023.png" align="left" width="50">
-   Web Back-End
-  <img src="https://cdn-icons-png.flaticon.com/512/1287/1287023.png" align="right" width="50"></h1>
+  <img src="https://cdn-icons-png.flaticon.com/512/8099/8099229.png" align="left" width="50">
+   Atlas - Back-End Web Development
+  <img src="https://cdn-icons-png.flaticon.com/512/8099/8099229.png" align="right" width="50"></h1>
 
 
-## Introduction: Welcome!
+## Welcome!
 This repository hosts the all of the back-end concepts that I worked with while I was a student at Atlas School Tulsa. It contains various projects focused on back-end development, including implementations in multiple languages and covering various back-end concepts and techniques.
 
-## Languages, Frameworks
+## Languages and Frameworks Used
 
     - Python
     - JavaScript (including ES6)
@@ -39,7 +39,7 @@ While a majority of these projects use Python as the main language, you will fin
 [**ES6_data_manipulation**](ES6_data_manipulation/)
 [**ES6_promise**](ES6_promise/)
 
-
+**THIS LIST IS INCOMPLETE UNTIL GRADUATION**
 
 # Highlighted Projects
 
