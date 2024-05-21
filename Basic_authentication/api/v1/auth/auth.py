@@ -4,7 +4,7 @@ Authorization Class Template
 """
 
 from flask import request
-from typing import List
+from typing import List, TypeVar
 
 
 class Auth():
