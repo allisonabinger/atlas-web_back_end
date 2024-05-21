@@ -22,12 +22,10 @@ def filter_datum(
         separator: string (character) by which the field is separated by
             in the message
     """
-    return ';'.join([re.sub(rf"(?<={field}=)[^;]+", redaction, message) for field in fields])  # noqa E501
-    # (?<={field}=) looks right before the main pattern to ensure the right
-    # field was selected.
 
-    # [^;]+ matches one or more chars that are not ; to capture the value of
-    #  the following 'field= or until the next ; or end of string
+    for field in fields:
+        message = re.sub(rf"(?<={field}=)[^{separator}]+", redaction, message)
+    return message
 
 
 class RedactingFormatter(logging.Formatter):
