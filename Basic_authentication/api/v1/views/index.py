@@ -32,3 +32,11 @@ def unauthorized() -> str:
     raises a 401 error
     """
     abort(401)
+
+
+@app_views.route('/forbidden', methods=['GET'], strict_slashes=False)
+def forbidden() -> str:
+    """GET /api/vi/forbidden
+    raises a 403 error that the app.py will handle
+    """
+    abort(403)
