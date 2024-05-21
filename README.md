@@ -4,37 +4,58 @@
   <img src="https://cdn-icons-png.flaticon.com/512/8099/8099229.png" align="right" width="50"></h1>
 
 
-## Welcome!
+# Welcome!
 This repository hosts the all of the back-end concepts that I worked with while I was a student at Atlas School Tulsa. It contains various projects focused on back-end development, including implementations in multiple languages and covering various back-end concepts and techniques.
 
-## Languages and Frameworks Used
-
+# Tech Stack
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![MySQL](https://img.shields.io/badge/mysql-%2300000f.svg?style=for-the-badge&logo=mysql&logoColor=white)
 
 **THIS LIST IS INCOMPLETE UNTIL GRADUATION**
 
----
-&nbsp;
 &nbsp;
 &nbsp;
 
 # Navigation and Key Concepts
 While a majority of these projects use Python as the main language, you will find other languages and concepts outside of python used throughout the projects. There are also several projects that use JavaScript (ES6)!
 
-### Basics: Comprehension and Introduction
-[**Async Comprehension**](python_async_comprehension/)
-[**Async Function**](python_async_function/)
+Click on any of the links to be taken to the project. 
 
-### Data Manipulation and Security
-[**Pagination**](pagination/)
-[**Caching**](caching/)
-[**Personal Data**](personal_data/)
+---
 
-### JavaScript (ES6)
-[**ES6_basic**](ES6_basic/)
-[**ES6_classes**](ES6_classes/)
-[**ES6_data_manipulation**](ES6_data_manipulation/)
-[**ES6_promise**](ES6_promise/)
+## Basics: Comprehension and Introduction
+
+#### [Async Function](python_async_function/)
+*Basic level understanding of Python's async and await syntax.*
+
+#### [Async Comprehension](python_async_comprehension/)
+*More extensive level of understanding for Python's async and await.*
+
+## Data Manipulation and Security
+
+#### [Pagination](pagination/) ft. CSV File Management
+*Implementing pagination techniques to manage large sets of data*
+
+
+#### [Caching](caching/)
+*Caching strategies to enhance application performance and efficieny*
+
+#### [Personal Data](personal_data/) ft. MySQL 
+*Handling and securing personal data (PII) within applications and databases*
+
+
+## JavaScript (ES6)
+#### [ES6_basic](ES6_basic/)
+*Fundamental features and syntax of JavaScript ES6*
+
+#### [ES6_classes](ES6_classes/)
+*Classes and object-oriented programming in JavaScript ES6*
+
+#### [ES6_data_manipulation](ES6_data_manipulation/)
+*Various data manipulation techniques using JavaScript ES6*
+
+#### [ES6_promise](ES6_promise/)
+*Promises for managing asynchronous operations in JavaScript ES6*
+
 
 **THIS LIST IS INCOMPLETE UNTIL GRADUATION**
 
