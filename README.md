@@ -9,10 +9,7 @@ This repository hosts the all of the back-end concepts that I worked with while 
 
 ## Languages and Frameworks Used
 
-    - Python
-    - JavaScript (including ES6)
-    - MySql
-    - Data Manipulation (CSV)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![MySQL](https://img.shields.io/badge/mysql-%2300000f.svg?style=for-the-badge&logo=mysql&logoColor=white)
 
 **THIS LIST IS INCOMPLETE UNTIL GRADUATION**
 
