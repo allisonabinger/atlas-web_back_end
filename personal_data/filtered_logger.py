@@ -50,6 +50,7 @@ class RedactingFormatter(logging.Formatter):
         return filter_datum(self.fields, self.REDACTION,
                             message, self.SEPARATOR)
 
+
 def get_logger() -> logging.Logger:
     """returns logger named 'user_data'
     logger only logs up to INFO level and does not propagate messages"""
