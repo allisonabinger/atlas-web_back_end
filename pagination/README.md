@@ -5,6 +5,7 @@
 
 
 ## Intro
+This project focuses on implementing pagination techniques to manage large sets of data.
 
 ## Learning Objectives
 
