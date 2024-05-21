@@ -72,7 +72,7 @@ def get_logger() -> logging.Logger:
 def get_db() -> mysql.connector.connection.MySQLConnection:
     """connects securely to the DB and returns a MySQLConnection object"""
 
-    """obtains db creds from the env variables"""
+    """obtains db creds from the env variables (used in command line)"""
     PERSONAL_DATA_DB_USERNAME = os.environ.get(
         "PERSONAL_DATA_DB_USERNAME", "root")
 
