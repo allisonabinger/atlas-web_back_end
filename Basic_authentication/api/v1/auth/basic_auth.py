@@ -61,13 +61,20 @@ class BasicAuth(Auth):
     def user_object_from_credentials(
             self, user_email: str, user_pwd: str) -> TypeVar('User'):
         """returns the User instance based on their email and password"""
+
+        """Debugging using if and print statements"""
         if user_email is None or not isinstance(user_email, str):
+            print("Invalid user_email")
             return None
         if user_pwd is None or not isinstance(user_pwd, str):
+            print("Invalid user_pwd")
             return None
 
+        print(f"Searching for user with email: {user_email}")
         user_list = User.search({'email': user_email})
+
         if not user_list:
+            print("No user found with this email")
             return None
 
         user = user_list[0]
@@ -75,6 +82,7 @@ class BasicAuth(Auth):
             return None
 
         if not user.is_valid_password(user_pwd):
+            print("Password is not valid")
             return None
 
         return user
