@@ -30,13 +30,13 @@ class BasicAuth(Auth):
 
         if base64_authorization_header is None:
             return None
-        
+
         if not base64_authorization_header:
             return None
-        
+
         if not isinstance(base64_authorization_header, str):
             return None
-        
+
         try:
             decoded_bytes = base64.b64decode(base64_authorization_header)
             decoded_string = decoded_bytes.decode('utf-8')
