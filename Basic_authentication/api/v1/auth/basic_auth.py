@@ -62,7 +62,7 @@ class BasicAuth(Auth):
             self, user_email: str, user_pwd: str) -> TypeVar('User'):
         """returns the User instance based on their email and password"""
         if user_email is None or not isinstance(user_email, str):
-            
+
             return None
         if user_pwd is None or not isinstance(user_pwd, str):
             return None
@@ -80,3 +80,27 @@ class BasicAuth(Auth):
             return None
 
         return user
+
+    def current_user(self, request=None) -> TypeVar('User'):
+        """Overloads Auth and retrieves the User instance for a request"""
+
+        if request is None:
+            from flask import request
+
+        auth_header = request.headers.get('Authorization')
+        if not auth_header:
+            return None
+
+        base64_auth_header = self.extract_base64_authorization_header(auth_header)  # noqa
+        if not base64_auth_header:
+            return None
+
+        decoded_auth_header = self.decode_base64_authorization_header(base64_auth_header)  # noqa
+        if not decoded_auth_header:
+            return None
+
+        user_email, user_pass = self.extract_user_credentials(decoded_auth_header)  # noqa
+        if not user_email or not user_pass:
+            return None
+
+        return self.user_object_from_credentials(user_email, user_pass)
