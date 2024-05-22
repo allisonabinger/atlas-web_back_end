@@ -7,4 +7,3 @@ from models.user import User
 
 class BasicAuth(Auth):
     """empty class"""
-    
