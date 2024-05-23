@@ -67,9 +67,8 @@ def before_request():
         if user is None:
             """must be valid user authorized to access"""
             abort(403)
-        
-        request.current_user = user
 
+        request.current_user = user
 
 
 if __name__ == "__main__":
