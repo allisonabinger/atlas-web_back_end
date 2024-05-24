@@ -58,11 +58,12 @@ def before_request():
     if auth.require_auth(request.path,
                          ['/api/v1/status/',
                           '/api/v1/unauthorized/',
-                          '/api/v1/forbidden/']):
+                          '/api/v1/forbidden/',
+                          '/api/v1/auth_session/login/']):
         """if it does (require_auth returns true)"""
-        if auth.authorization_header(request) is None:
+        if auth.authorization_header(request) is None or auth.session_cookie(request) is None:  # noqa
             """must have authorization header"""
-            abort(401)
+            return None, abort(401)
 
         user = auth.current_user(request)
         if user is None:
