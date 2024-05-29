@@ -64,12 +64,16 @@ class TestMemoize(unittest.TestCase):
     """Test Suite for memoize method"""
 
     def test_memoize(self):
+        """tests functionality of memoize"""
         class TestClass:
+            """defines testClass method"""
             def a_method(self):
+                """returns 42"""
                 return 42
 
             @memoize
             def a_property(self):
+                """returns the a_method"""
                 return self.a_method()
 
         test_instance = TestClass()
