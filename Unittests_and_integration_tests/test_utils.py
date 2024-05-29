@@ -20,6 +20,7 @@ class TestAccessNestedMap(unittest.TestCase):
                                nested_map: Dict[str, Any],
                                path: Tuple[str, ...],
                                expected: Any) -> None:
+        """asserts that the parameters will give the expected results"""
         self.assertEqual(access_nested_map(nested_map, path), expected)
 
     @parameterized.expand([
@@ -29,6 +30,7 @@ class TestAccessNestedMap(unittest.TestCase):
     def test_access_nested_map_exception(self,
                                          nested_map: Dict[str, Any],
                                          path: Tuple[str, ...]) -> None:
+        """method to assert the that the exception will be raised"""
         with self.assertRaises(KeyError):
             access_nested_map(nested_map, path)
 
