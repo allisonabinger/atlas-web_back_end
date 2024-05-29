@@ -61,7 +61,10 @@ class TestGetJson(unittest.TestCase):
 
 
 class TestMemoize(unittest.TestCase):
-    """Test Suite for memoize method"""
+    """Test Suite for memoize method
+    decorator used to cache result of a method call.
+    tests to make sure the method is only called once no matter
+    how many times it is accessed."""
 
     def test_memoize(self):
         """tests functionality of memoize"""
@@ -73,12 +76,13 @@ class TestMemoize(unittest.TestCase):
 
             @memoize
             def a_property(self):
-                """returns the a_method"""
+                """uses memoizeation to cache the result of a_method"""
                 return self.a_method()
 
         test_instance = TestClass()
 
         with patch.object(TestClass, 'a_method', return_value=42) as mock_method:  # noqa
+            """accesses the mock object"""
             result1 = test_instance.a_property
             result2 = test_instance.a_property
 
