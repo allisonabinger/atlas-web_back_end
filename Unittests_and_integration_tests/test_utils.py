@@ -67,26 +67,30 @@ class TestMemoize(unittest.TestCase):
     how many times it is accessed."""
 
     def test_memoize(self):
-        """tests functionality of memoize"""
+        """tests functionality of memoize with a method. contains the
+        TestClass class to utilize"""
         class TestClass:
-            """defines testClass method"""
+            """defines testClass which holds two methods."""
             def a_method(self):
-                """returns 42"""
+                """returns 42 as an int
+                """
                 return 42
 
             @memoize
             def a_property(self):
-                """uses memoizeation to cache the result of a_method"""
+                """uses memoizeation to cache the result of a_method.
+                """
                 return self.a_method()
 
+        """creates an instance of the class"""
         test_instance = TestClass()
 
         with patch.object(TestClass, 'a_method', return_value=42) as mock_method:  # noqa
             """accesses the mock object"""
             result1 = test_instance.a_property
             result2 = test_instance.a_property
-
+            """asserts the property will return the same value"""
             self.assertEqual(result1, 42)
             self.assertEqual(result2, 42)
-
+            """asserts the mock_method was only called once"""
             mock_method.assert_called_once()
