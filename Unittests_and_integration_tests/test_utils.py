@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Test file for utils.py"""
 import unittest
+from unittest.mock import patch, Mock
 from parameterized import parameterized
 from typing import Dict, Any, Tuple
-from utils import access_nested_map
+from utils import access_nested_map, get_json
 
 
 class TestAccessNestedMap(unittest.TestCase):
@@ -30,3 +31,30 @@ class TestAccessNestedMap(unittest.TestCase):
                                          path: Tuple[str, ...]) -> None:
         with self.assertRaises(KeyError):
             access_nested_map(nested_map, path)
+
+
+class TestGetJson(unittest.TestCase):
+    """Test suite for get_json method"""
+
+    @parameterized.expand([
+        ("http://example.com", {"payload": True}),
+        ("http://holberton.io", {"payload": False}),
+        ])
+    def test_get_json(self, test_url: str, test_payload: Dict) -> None:
+        """Tests the functionality of get_json method using Mock
+        to isolate from any external dependencies (like network issues)"""
+        # replaces requests.get with mock object mocked_get instead
+        with patch('requests.get') as mocked_get:
+            mock_response = Mock()  # creates a new Mock object
+
+            # sets the return value of the json method to return test_payload
+            mock_response.json.return_value = test_payload
+            # should return mock_response when mocked_get is called
+            # mocked_get is the replacement for requests.get
+            mocked_get.return_value = mock_response
+            # calls get_json
+            result = get_json(test_url)
+            # makes sure get_json used the mocked_get instead of requests.get
+            mocked_get.assert_called_once_with(test_url)
+            # makes sure the result was called and is the same as test_payload
+            self.assertEqual(result, test_payload)
