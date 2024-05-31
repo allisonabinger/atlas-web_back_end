@@ -8,13 +8,13 @@
 
 ## Learning Objectives
 
-1. **Personal Identifiable Information**
+1. **Unit and Integration Tests**
 
-2. **How to implement a log filter that will obfuscate PII fields**
+2. **Using `Mock()` and `patch`**
 
-3. **How to encrypt a password and check the validity of an input password**
+3. **Parameterized in Testing**
 
-4. **How to authenticate to a database using environment variables**
+4. **Memoization**
 
 ---
 ---
@@ -24,20 +24,16 @@
 
 # Concepts:
 
-[**Regex-ing**](https://www.w3schools.com/python/python_regex.asp)
-Utilizing regular expressions for pattern matching and filtering within log messages.
+[**UnitTest**](https://docs.python.org/3/library/unittest.html)
+Unit Testing Framework - supports test automation, sharing of setup and shutdown code for tests, aggregation of tests into collections, and independence of the tests from the reporting framework. 
 
-[**Obfuscation**](https://en.wikipedia.org/wiki/Obfuscation_(software))
-Creating source or machine code that is difficult for humans or computers to understand, which in this context is for concealing. See [**Security through Obscurity**](https://en.wikipedia.org/wiki/Security_through_obscurity)
+[**Mock Object Library*](https://docs.python.org/3/library/unittest.mock.html)
+Using `unittest.mock` to replace parts of your system under test with mock objects, and to make assertions about how they have been used. Additionally, `patch()` acts a function decorator, class decorator, or a context manager. Inside the body of the function or `with` statement, the target is patched with a new object.
 
 
 ## Resources and Descriptions
-[**What is PII, non-PII, and Personal Data?**](https://piwik.pro/blog/what-is-pii-personal-data/)
-
-[**Logging facility for Python**](https://docs.python.org/3/library/logging.html)
-
-[**bcrypt Packag - Password Hashing**](https://github.com/pyca/bcrypt/)
-
+[Resource]()
+[Resource]()
 
 &nbsp;
 ---

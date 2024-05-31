@@ -3,7 +3,7 @@
 import unittest
 from client import GithubOrgClient
 from parameterized import parameterized
-from unittest.mock import patch
+from unittest.mock import patch, PropertyMock
 
 
 class TestGithubOrgClient(unittest.TestCase):
@@ -34,17 +34,42 @@ class TestGithubOrgClient(unittest.TestCase):
         """asserts the result matches the expected org"""
         self.assertEqual(result, expected_org)
 
-    @patch('client.GithubOrgClient.org', new_callable=property)
+    @patch('client.GithubOrgClient.org', new_callable=PropertyMock)
     def test_public_repos_url(self, mock_org):
-        """Test the _public_repos_url property of GithubOrgClient"""
-        # Define a known payload
-        known_payload = {"repos_url": "https://api.github.com/orgs/mock_org/repos"}
-        
-        # Set the return value of the mocked org property
-        mock_org.side_effect = [known_payload]
-        
-        # Create an instance of GithubOrgClient
-        client = GithubOrgClient("mock_org")
-        
-        # Test that the _public_repos_url property returns the expected URL
-        self.assertEqual(client._public_repos_url, "https://api.github.com/orgs/mock_org/repos")
+        """Test the _public_repos_url property of GithubOrgClient
+        based on the mocked org"""
+
+        mock_payload = {"repos_url": "https://api.github.com/orgs/google/repos"}  # noqa
+        mock_org.return_value = mock_payload
+
+        client = GithubOrgClient("CompTIA")
+        result = client._public_repos_url
+        self.assertEqual(result, mock_payload["repos_url"])
+
+    @patch('client.get_json')
+    def test_public_repos(self, mock_get_json):
+        """Method to test the public_repos property of GithubOrgClient"""
+
+        """list of dictionaries for mock object return value"""
+        repos_payload = [
+            {"name": "repo1"},
+            {"name": "repo2"},
+            {"name": "repo3"}
+        ]
+        """defines mock object return value to replace get_json's return"""
+        mock_get_json.return_value = repos_payload
+
+        """uses patch as context manager to patch _public_repos_url property
+        uses MockPropert to assign it to mock_public_repos_url"""
+        with patch('client.GithubOrgClient._public_repos_url', new_callable=PropertyMock) as mock_public_repos_url:  # noqa
+            mock_url = "https://api.github.com/orgs/google/repos"
+
+            """assigns property to mock_url for mock property"""
+            mock_public_repos_url.return_value = mock_url
+
+            client = GithubOrgClient("CompTIA")
+            result = client.public_repos()
+
+            self.assertEqual(result, ["repo1", "repo2", "repo3"])
+            mock_public_repos_url.assert_called_once()
+            mock_get_json.assert_called_once_with(mock_url)
