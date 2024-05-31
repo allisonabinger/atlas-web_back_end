@@ -2,7 +2,7 @@
 """Test file for client.py"""
 import unittest
 from client import GithubOrgClient
-from parameterized import parameterized
+from parameterized import parameterized, parameterized_class
 from unittest.mock import patch, PropertyMock
 from fixtures import org_payload, repos_payload, expected_repos, apache2_repos
 
