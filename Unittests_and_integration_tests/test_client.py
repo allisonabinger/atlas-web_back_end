@@ -4,6 +4,7 @@ import unittest
 from client import GithubOrgClient
 from parameterized import parameterized
 from unittest.mock import patch, PropertyMock
+from fixtures import org_payload, repos_payload, expected_repos, apache2_repos
 
 
 class TestGithubOrgClient(unittest.TestCase):
@@ -90,3 +91,41 @@ class TestGithubOrgClient(unittest.TestCase):
         self.assertEqual(result, expected)
 
 #  ######################### Start of Integration Tests
+@parameterized_class((
+    'org_payload',
+    'repos_payload',
+    'expected_repos',
+    'apache2_repos',
+))
+class TestIntegrationGithubOrgClient(unittest.TestCase):
+    """Integration test suite for GithubOrgClient, only mocks code that
+    sends external requests"""
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        """sets up necessary mock for 'requests.get"""
+        cls.get_patcher = patch('requests.get')
+
+        """starts patcher to intercept all calls to replace w/ mock object"""
+        cls.mock_get = cls.get_patcher.start()
+
+        """side effect of mock object returned by requests.get
+        specifies list of return values/exceptions to be raised when called"""
+        """mock objects with json methods, calling json will
+            return cls.org_payload or repos_payload"""
+        cls.mock_get.side_effect = [
+            unittest.mock.Mock(json=lambda: cls.org_payload),
+            unittest.mock.Mock(json=lambda: cls.repos_payload)
+        ]
+
+    @classmethod
+    def tearDownClass(cls) -> None:
+        """stops patcher created in setUpClass"""
+        cls.get_patcher.stop()
+
+    # def test_public_repos(self):
+    #     """integration test for test_public_repos"""
+    #     client = GithubOrgClient('CompTIA')
+    #     result = client.public_repos()
+
+    #     self.assertEqual(result, self.expected_repos)
