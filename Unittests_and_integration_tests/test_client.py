@@ -73,3 +73,20 @@ class TestGithubOrgClient(unittest.TestCase):
             self.assertEqual(result, ["repo1", "repo2", "repo3"])
             mock_public_repos_url.assert_called_once()
             mock_get_json.assert_called_once_with(mock_url)
+
+    @parameterized.expand([
+        ({"license": {"key": "my_license"}}, "my_license", True),
+        ({"license": {"key": "other_license"}}, "my_license", False),
+    ])
+    def test_has_license(self, repo, license_key, expected):
+        """Method to test the has_license method of GithubOrgClient
+        arguments passed from expanded parameters:
+        repo: dictionary for repo license
+        license_key : key
+        expected: bool result of has_license depending on parameter"""
+
+        client = GithubOrgClient("CompTIA")
+        result = client.has_license(repo, license_key)
+        self.assertEqual(result, expected)
+
+#  ######################### Start of Integration Test
