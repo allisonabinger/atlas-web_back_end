@@ -80,7 +80,7 @@ class TestGithubOrgClient(unittest.TestCase):
     ])
     def test_has_license(self, repo, license_key, expected):
         """Method to test the has_license method of GithubOrgClient
-        arguments passed from expanded parameters:
+        arguments from expanded parameters:
         repo: dictionary for repo license
         license_key : key
         expected: bool result of has_license depending on parameter"""
