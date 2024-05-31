@@ -91,12 +91,15 @@ class TestGithubOrgClient(unittest.TestCase):
         self.assertEqual(result, expected)
 
 #  ######################### Start of Integration Tests
+
+
 @parameterized_class((
-    'org_payload',
-    'repos_payload',
-    'expected_repos',
-    'apache2_repos',
-))
+    "org_payload",
+    "repos_payload",
+    "expected_repos",
+    "apache2_repos"), TEST_PAYLOAD
+)
+
 class TestIntegrationGithubOrgClient(unittest.TestCase):
     """Integration test suite for GithubOrgClient, only mocks code that
     sends external requests"""
