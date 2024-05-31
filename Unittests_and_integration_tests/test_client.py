@@ -89,4 +89,4 @@ class TestGithubOrgClient(unittest.TestCase):
         result = client.has_license(repo, license_key)
         self.assertEqual(result, expected)
 
-#  ######################### Start of Integration Test
+#  ######################### Start of Integration Tests
