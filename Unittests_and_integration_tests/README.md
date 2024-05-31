@@ -42,26 +42,8 @@ Using `unittest.mock` to replace parts of your system under test with mock objec
 # Code Examples and Highlighted Tasks
 
 ## Filtered Logger
-[**filtered_logger.py**](filtered_logger.py)
-
-The functionality of this file is to demonstrate secure logging practices in Python, including regex-based obfuscation or sensitive data fields in log messages and secure connection to a MySQL database.
 
 ### Concepts Used
-**Regex-ing**
-The project utilizes regular expressions (re module) for pattern matching and filtering within log messages to obfuscate sensitive information such as names, emails, phone numbers, SSNs, and passwords.
-
-**Obfuscating Log Messages**
-The filter_datum function is used to replace occurrences of specified field values with a redaction string in log messages, ensuring sensitive data is not exposed.
-
-**Logging Facility in Python**
-Python's logging module is employed to create a custom RedactingFormatter class, which formats log records and integrates the filter_datum function to obfuscate sensitive data fields before logging.
-
-**bcrypt Package**
-While not explicitly demonstrated in this script, bcrypt is commonly used for secure password hashing and authentication purposes in Python applications.
-
-**Connecting to a Secure Database**
-The project securely connects to a MySQL database using mysql.connector, retrieving credentials from environment variables (PERSONAL_DATA_DB_USERNAME, PERSONAL_DATA_DB_PASSWORD, PERSONAL_DATA_DB_HOST, PERSONAL_DATA_DB_NAME) to ensure secure database access.
-
 
 
 &nbsp;
