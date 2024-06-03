@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """Writes Strings to Redis"""
 import redis
 import uuid
@@ -10,7 +10,7 @@ class Cache:
     def __init__(self):
         """init method for Cache Class"""
         self._redis = redis.Redis()
-        self._redis.flushdb
+        self._redis.flushdb()
 
     def store(self, data: Union[str, bytes, int, float]) -> str:
         """stores a key/data set"""
