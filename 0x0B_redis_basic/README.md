@@ -4,7 +4,8 @@
   <img src="https://cdn-icons-png.flaticon.com/512/1287/1287023.png" align="right" width="50"></h1>
 
 
-## Intro
+## What is Redis?
+Redis, or Remote Dictionary Server is an in-memory database. It is often used as a Cache to improve performance, but it is also a fully-fledged primary database that can be used to store and persist multiple data formats for complex microservice applciations.
 
 ## Learning Objectives
 
