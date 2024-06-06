@@ -13,7 +13,6 @@ def count_calls(method: Callable) -> Callable:
         """wrapper func to count calls and call the original method"""
         """uses the qualified name of the method as key to track # of calls"""
         key = method.__qualname__
-        print(key)
         self._redis.incr(key)
         return method(self, *args, **kwargs)
     return wrapper
