@@ -83,6 +83,6 @@ def replay(method: Callable):
 
     call_count = len(inputs)
 
-    print(f"{method_name} was called {call_count}" + "times:")
+    print(f"{method_name} was called {call_count}" + " times:")
     for input_args, output in zip(inputs, outputs):
         print(f"{method_name}(*{input_args.decode('utf-8')}) -> {output.decode('utf-8')}")  # noqa
