@@ -12,7 +12,7 @@ def count_calls(method: Callable) -> Callable:
     def wrapper(self, *args, **kwargs):
         """wrapper func to count calls and call the original method"""
         # uses the qualified name of the method as key to track # of calls
-        key = f"{method.__qualname__}"
+        key = method.__qualname__
         # increment count in Redis
         self._redis.incr(key)
         # call method
