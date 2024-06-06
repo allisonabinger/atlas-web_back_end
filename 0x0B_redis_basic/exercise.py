@@ -24,8 +24,8 @@ def call_history(method: Callable) -> Callable:
     @functools.wraps(method)
     def wrapper(self, *args, **kwargs):
         """wrapper func to store input and outputs in Redis lists"""
-        input_key = f"{method.__qualname__}:inputs"
-        output_key = f"{method.__qualname__}:outputs"
+        input_key = method.__qualname__ + ":inputs"
+        output_key = method.__qualname__ + ":outputs"
 
         """normalizes input args"""
         self._redis.rpush(input_key, str(args))
@@ -35,6 +35,7 @@ def call_history(method: Callable) -> Callable:
         self._redis.rpush(output_key, str(result))
         return result
     return wrapper
+
 
 class Cache:
     """defines the Cache Class"""
@@ -67,3 +68,21 @@ class Cache:
     def get_int(self, key: str) -> Optional[int]:
         """uses get method with int to convert byte string to integer"""
         return self.get(key, fn=int)
+
+
+def replay(method: Callable):
+    """displays history of calls of a function"""
+    redis_instance = method.__self__._redis
+    method_name = method.__qualname__
+
+    input_key = method.__qualname__ + ":inputs"
+    output_key = method.__qualname__ + ":outputs"
+
+    inputs = redis_instance.lrange(input_key, 0, -1)
+    outputs = redis_instance.lrange(output_key, 0, -1)
+
+    call_count = len(inputs)
+
+    print(f"{method_name} was called {call_count}" + "times:")
+    for input_args, output in zip(inputs, outputs):
+        print(f"{method_name}(*{input_args.decode('utf-8')}) -> {output.decode('utf-8')}")  # noqa
