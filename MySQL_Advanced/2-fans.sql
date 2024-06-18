@@ -9,7 +9,7 @@
 -- This script will not store this table as a permanent object, but will select from the temporary table.
 
 CREATE TEMPORARY TABLE IF NOT EXISTS band_fans AS (
-    SELECT origin, COUNT(fans) AS nb_fans FROM metal_bands
+    SELECT origin, SUM(fans) AS nb_fans FROM metal_bands
     GROUP BY origin
     ORDER BY nb_fans DESC
 );
