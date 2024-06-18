@@ -1,3 +1,4 @@
 htbn_0d_tvshows.sql
 createdb.sql
 removedb.sql
+cleanup.sh
