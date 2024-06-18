@@ -3,3 +3,4 @@ createdb.sql
 removedb.sql
 cleanup.sh
 tmp_res
+names.sql
