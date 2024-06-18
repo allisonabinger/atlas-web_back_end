@@ -1,6 +1,7 @@
-htbn_0d_tvshows.sql
-createdb.sql
-removedb.sql
-cleanup.sh
-tmp_res
-names.sql
+**/htbn_0d_tvshows.sql
+**/createdb.sql
+**/removedb.sql
+**/cleanup.sh
+**/tmp_res
+**/names.sql
+**/metal_bands.sql
