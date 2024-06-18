@@ -1,3 +1,5 @@
+-- holberton database must be created and prepared before this script can run.
+
 -- Task 0: Creates a table 'users' with the following attributes:
 -- id (int, never null, auto increment and primary key)
 -- email (string [255 characters], never null, unique)
