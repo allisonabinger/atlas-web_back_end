@@ -1,7 +1,7 @@
 -- holberton database must be created and prepared before this script can run.
+-- references metal_bands.sql located in directory
 
 -- Task 2: Ranks country origins of bands, ordered by the number of (non-unique) fans
--- references metal_bands.sql located in directory
 -- column names are origin and nb_fans
 
 -- Tip! Uses a temporary table to only exist for the duration of the session in which theyre created.
