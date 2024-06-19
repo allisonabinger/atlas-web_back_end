@@ -1,0 +1,8 @@
+// Task 6: adds new attribute to a document in the collection school
+// The script will update only documents with name="Holberton school"
+// the attr added is addess with value "927 Mission Street"
+db.school.update(
+    { name: "Holberton school" },
+    { $set: { address: "972 Mission street" } },
+    {multi: true}  // updates any # of documents with matching criteria
+)
