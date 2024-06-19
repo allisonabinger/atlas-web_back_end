@@ -2,6 +2,7 @@
 """Task 12: provides stats about Nginx logs stored in MongoDB"""
 from pymongo import MongoClient
 
+
 def nginx_log_stats():
     """Delcare Vars for use"""
     HOST = 'localhost'
@@ -32,6 +33,7 @@ def nginx_log_stats():
 
     """print number of status checks"""
     print(f"{status_check} status check")
+
 
 if __name__ == "__main__":
     nginx_log_stats()
