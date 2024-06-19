@@ -1,0 +1,2 @@
+// Task 1: Creates or uses the database my_db
+use my_db
