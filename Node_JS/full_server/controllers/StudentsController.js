@@ -24,7 +24,7 @@ class StudentsController {
         const { major } = req.query;
 
         if (!major || (major !== 'CS' && major !== 'SWE')) {
-            res.status(500).send('Major parameter invalid or missing. Must be CS or SWE');
+            res.status(500).send('Major parameter must be CS or SWE');
             return;
         }
 
