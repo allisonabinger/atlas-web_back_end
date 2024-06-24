@@ -20,7 +20,7 @@ const app = http.createServer(async (req, res) => {
     if (parsedUrl.pathname === '/') {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'text/plain');
-        res.end('Hello Holberton School!'); // end response and send data
+        res.end('Hello Holberton School!');
     } else if (parsedUrl.path === '/students') {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'text/plain');

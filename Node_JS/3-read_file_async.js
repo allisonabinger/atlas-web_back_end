@@ -8,7 +8,7 @@ async function countStudents(path) {
 
         const counts = {};
         const lists = {};
-        const total = lines.length - 1; // Total number of students
+        const total = lines.length - 1; // total number of students
 
         for (let i = 1; i < lines.length; i++) {
             const line = lines[i].trim();
