@@ -1,4 +1,6 @@
 // StudentsController class
+// getAllStudents - returns all students by first name according to their field
+// getAllStudentsByMajor - accepts paramenter of field and returns students in corr. field
 
 const readDatabase = require('../utils')
 

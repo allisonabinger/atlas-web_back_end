@@ -1,4 +1,4 @@
-// adds routes to methdos
+// Connects the routes to the appropriate controller method
 
 const express = require('express');
 const AppController = require('../controllers/AppController');

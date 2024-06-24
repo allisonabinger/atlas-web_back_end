@@ -1,6 +1,7 @@
 // readDatabase
 // accepts file path as arg, reads the database asynchronously, returns a promise
 // returns object of arrays of the firstname of students per fields
+// utility function to parse data for server requests
 
 const fs = require('fs').promises
 
