@@ -1,6 +1,3 @@
-// Task 3: same as Task two but attempts to read the database file asynchronously
-// function returns a promise
-
 const fs = require('fs').promises;
 
 async function countStudents(path) {
@@ -11,6 +8,7 @@ async function countStudents(path) {
 
         const counts = {};
         const lists = {};
+        const total = lines.length - 1; // Total number of students
 
         for (let i = 1; i < lines.length; i++) {
             const line = lines[i].trim();
@@ -25,10 +23,8 @@ async function countStudents(path) {
                 }
             }
         }
-        console.log(`Number of students: ${lines.length - 1}`); // Total number of students
-        for (const field in counts) {
-          console.log(`Number of students in ${field}: ${counts[field]}. List: ${lists[field].join(', ')}`);
-        }
+
+        return { total, counts, lists };
     } catch (err) {
         throw new Error('Cannot load the database or access database file.');
     }
