@@ -7,7 +7,7 @@ const app = express()
 
 app.get('/', (req, res) => {
     console.log('Endpoint "/" accessed.');
-    res.send('Hello Holberton School!');
+    res.status(400).send('Hello Holberton School!');
 })
 
 app.listen(1245, () => {
