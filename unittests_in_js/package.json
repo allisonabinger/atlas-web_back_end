@@ -2,7 +2,7 @@
   "name": "unittests_in_js",
   "version": "1.0.0",
   "description": "0-calcul.js",
-  "main": "",
+  "main": "0-calcul.js",
   "scripts": {
     "test": "mocha"
   },
