@@ -8,22 +8,23 @@ const fs = require('fs');
 function countStudents(path) {
     try {
         const data = fs.readFileSync(path, 'utf-8');
-        const lines = data.split('\n').filter(line => line.trim() !== '');
+        const lines = data.split('\n').filter((line) => line.trim() !== '');
 
         const counts = {};
         const lists = {};
 
         // skips header line
-        for (let i = 1; i < lines.length; i++){
+        for (let i = 1; i < lines.length; i += 1) {
             const line = lines[i].trim();
             if (line !== '') {
+                // eslint-disable-next-line no-unused-vars
                 const [firstname, lastname, age, field] = line.split(',');
 
                 if (counts[field] === undefined) {
                     counts[field] = 1;
                     lists[field] = [firstname];
                 } else {
-                    counts[field]++;
+                    counts[field] += 1;
                     lists[field].push(firstname);
                 }
             }
@@ -31,6 +32,7 @@ function countStudents(path) {
 
         // uses line count for number of students
         console.log(`Number of students: ${lines.length - 1}`);
+        // eslint-disable-next-line guard-for-in
         for (const field in counts) {
             console.log(`Number of students in ${field}: ${counts[field]}. List: ${lists[field].join(', ')}`);
         }

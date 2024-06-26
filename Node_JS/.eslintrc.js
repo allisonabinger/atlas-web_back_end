@@ -18,6 +18,7 @@ module.exports = {
     },
     plugins: ['jest'],
     rules: {
+        'arrow-parens': ['error', 'always'],
         'indent': ['error', 4],
         'max-classes-per-file': 'off',
         'no-underscore-dangle': 'off',
