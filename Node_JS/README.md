@@ -1,22 +1,29 @@
   <h1 align="center">
-  <img src="https://cdn-icons-png.flaticon.com/512/1287/1287023.png" align="left" width="50">
-   MySQL Advanced
-  <img src="https://cdn-icons-png.flaticon.com/512/1287/1287023.png" align="right" width="50"></h1>
+  <img src="https://cdn.iconscout.com/icon/free/png-256/free-node-js-1174925.png?f=webp" align="left" width="50">
+  Node.js Basics
+  <img src="https://cdn.iconscout.com/icon/free/png-256/free-node-js-1174925.png?f=webp" align="right" width="50"></h1>
 
 
 ## Intro
- This project is to enhance my understanding and skills in advanced MySQL features such as creating tables with constraints, optimizing  queries, and implementing stored procedures, functions, views, and triggers. This project prepared me to handle complex database operations and optimize database performance. 
+ This project aims to provide practical experience and understanding of Node.js and related tools like Express.js, Mocha, and Nodemon.
+ 
 ## Learning Objectives
 
-1. **Create tables with various constraints**
+1. **How to run JavaScript applications using Node.js**
 
-2. **Optimize queries by adding indexes**
+2. **Utilization of Node.js modules effectively**
 
-3. **Implement stored procedures and functions in MySQL**
+3. **Reading files using specific Node.js modules**
 
-4. **Create and use views in MySQL**
+4. **Accessing command-line arguments and environment variables using the Process API**
 
-5. **Set up and use triggers in MySQL**
+5. **Creating basic and advanced HTTP servers using Node.js and Express.js**
+
+6. **Implementing advanced routing techniques with Express.js**
+
+7. **Leveraging ES6 features in Node.js using Babel-node**
+
+8. **Enhancing development productivity with Nodemon**
 
 ---
 ---
@@ -26,30 +33,29 @@
 
 # Concepts:
 
-[**Leveraging MySQL Database Indexing**](https://www.liquidweb.com/kb/mysql-optimization-how-to-leverage-mysql-database-indexing/)
-Improving query performance with indexes.
+[**Node.js Fundamentals**](https://nodejs.org/en/learn/getting-started/introduction-to-nodejs)
+Setting up Node.js environment, running scripts, and using built-in modules
 
-[**Stored Procedures**](https://www.w3resource.com/mysql/mysql-procedure.php)
-Create and execute stored procedures for repetitive database operations
+[**Express.js**](https://expressjs.com/en/starter/installing.html)
+Building web applications with routes, middleware, and handling HTTP requests.
 
-
-
-
-## Resources and Descriptions
-[**MySQL Cheatsheet**](https://devhints.io/mysql)
 
 
 &nbsp;
 ---
 &nbsp;
 
-# Code Examples and Highlighted Tasks
+# Highlighted Tasks
 
-## [Task](task_link)
-
-### Concepts Used
-**Concept**
-Explanation
+## [Task 3: Reading a file asynchronously with Node JS](./3-read_file_async.js)
+Using the database [database.csv](./database.csv), create a function countStudents:
+    - Create a function named countStudents. It should accept a path in argument (same as in 2-read_file.js)
+    - The script should attempt to read the database file asynchronously
+    - The function should return a Promise
+    - If the database is not available, it should throw an error with the text Cannot load the database
+    - If the database is available, it should log the following message to the console Number of students: NUMBER_OF_STUDENTS
+    - It should log the number of students in each field, and the list with the following format: Number of students in FIELD: 6. List: LIST_OF_FIRSTNAMES
+    - CSV file can contain empty lines (at the end) - and they are not a valid student!
 
 
 &nbsp;
