@@ -1,22 +1,22 @@
   <h1 align="center">
-  <img src="https://cdn-icons-png.flaticon.com/512/1287/1287023.png" align="left" width="50">
-   MySQL Advanced
-  <img src="https://cdn-icons-png.flaticon.com/512/1287/1287023.png" align="right" width="50"></h1>
+  <img src="" align="left" width="50">
+   Unittests in Javascript
+  <img src="" align="right" width="50"></h1>
 
 
 ## Intro
- This project is to enhance my understanding and skills in advanced MySQL features such as creating tables with constraints, optimizing  queries, and implementing stored procedures, functions, views, and triggers. This project prepared me to handle complex database operations and optimize database performance. 
+--
 ## Learning Objectives
 
-1. **Create tables with various constraints**
+1. ****
 
-2. **Optimize queries by adding indexes**
+2. ****
 
-3. **Implement stored procedures and functions in MySQL**
+3. ****
 
-4. **Create and use views in MySQL**
+4. ****
 
-5. **Set up and use triggers in MySQL**
+5. ****
 
 ---
 ---
@@ -26,17 +26,17 @@
 
 # Concepts:
 
-[**Leveraging MySQL Database Indexing**](https://www.liquidweb.com/kb/mysql-optimization-how-to-leverage-mysql-database-indexing/)
-Improving query performance with indexes.
+[****](link)
 
-[**Stored Procedures**](https://www.w3resource.com/mysql/mysql-procedure.php)
-Create and execute stored procedures for repetitive database operations
+
+[****](link)
+
 
 
 
 
 ## Resources and Descriptions
-[**MySQL Cheatsheet**](https://devhints.io/mysql)
+[****](link)
 
 
 &nbsp;
