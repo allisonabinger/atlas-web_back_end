@@ -4,12 +4,14 @@
   "description": "0-calcul.js",
   "main": "0-calcul.js",
   "scripts": {
-    "test": "mocha"
+    "test": "chai",
+    "test-mocha": "mocha"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "chai": "^5.1.1",
     "mocha": "^10.5.2"
   }
 }

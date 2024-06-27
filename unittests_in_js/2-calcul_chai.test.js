@@ -1,18 +1,12 @@
-// test suite for calculateNumber in 0-calcul.js
-// uses mocha for testing
-const assert = require('assert');
+// test suite for calculateNumber in 0-calcul.js using chai
+const { expect } = require('chai');
 const calculateNumber = require('./1-calcul');
 
 describe('calculateNumber', function() {
 
     // Testing for invalid 'type'
     it('should throw an error for invalid operation type', function() {
-        try {
-            calculateNumber('ADD', 1, 3);
-            assert.fail('Expected an error to be thrown');
-        } catch (error) {
-            assert.strictEqual(error.message, 'Invalid type: must be SUM, SUBTRACT, or DIVIDE');
-        }
+        expect(() => calculateNumber('ADD', 1, 3)).to.throw('Invalid type: must be SUM, SUBTRACT, or DIVIDE');
     });
 
     // Testing for SUM operations
