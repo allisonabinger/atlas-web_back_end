@@ -13,78 +13,69 @@ describe('calculateNumber', function() {
     // Testing for SUM operations
     describe('SUM', function() {   
         it('should return 4 when inputs are 1 and 3', function() {
-            const result = calculateNumber('SUM', 1, 3);
-            expect(result).to.equal(4);
+            expect(calculateNumber('SUM', 1, 3)).to.equal(4);
         });
 
         it('should return 5 when inputs are 1 and 3.7', function() {
-            const result = calculateNumber('SUM', 1, 3.7);
-            expect(result).to.equal(5);
+            expect(calculateNumber('SUM', 1, 3.7)).to.equal(5);
         });
 
         it('should return 5 when inputs are 1.2 and 3.7', function() {
-            const result = calculateNumber('SUM', 1.2, 3.7);
-            expect(result).to.equal(5);
+            expect(calculateNumber('SUM', 1.2, 3.7)).to.equal(5);
         });
 
         it('should return 6 when inputs are 1.5 and 3.7', function() {
-            const result = calculateNumber('SUM', 1.5, 3.7);
-            expect(result).to.equal(6);
+            expect(calculateNumber('SUM', 1.5, 3.7)).to.equal(6);
         });
 
         it('should handle negative numbers correctly', function() {
-            const result1 = calculateNumber('SUM', -1.5, -3.7);
-            const result2 = calculateNumber('SUM', -1.2, -3.7);
-            expect(result1, result2).to.equal(-5);
+            expect(calculateNumber('SUM', -1.5, -3.7), calculateNumber('SUM', -1.2, -3.7)).to.equal(-5);
         });
 
         it('should handle zero correctly', function() {
-            const result1 = calculateNumber('SUM', 0, 0);
-            const result2 = calculateNumber('SUM', -1.2, 0);
-            expect(result1).to.equal(0);
-            expect(result2).to.equal(-1)
+            expect(calculateNumber('SUM', 0, 0)).to.equal(0);
+            expect(calculateNumber('SUM', -1.2, 0)).to.equal(-1);
         });
     });
     // Testing for SUBTRACT operations
     describe('SUBTRACT', function() {
         it('should return 2 when inputs are 5 and 3', function() {
-            assert.strictEqual(calculateNumber('SUBTRACT', 5, 3), 2);
+            expect(calculateNumber('SUBTRACT', 5, 3)).to.equal(2);
         });
 
         it('should return 5 when inputs are 10.2 and 4.9', function() {
-            assert.strictEqual(calculateNumber('SUBTRACT', 10.2, 4.9), 5);
+            expect(calculateNumber('SUBTRACT', 10.2, 4.9)).to.equal(5);
         });
 
         it('should handle negative numbers correctly', function() {
-            assert.strictEqual(calculateNumber('SUBTRACT', -3, 2), -5);
+            expect(calculateNumber('SUBTRACT', -3, 2)).to.equal(-5);
         });
 
         it('should handle zero correctly', function() {
-            assert.strictEqual(calculateNumber('SUBTRACT', 0, 0), 0);
-            assert.strictEqual(calculateNumber('SUBTRACT', 1.2, 0), 1);
+            expect(calculateNumber('SUBTRACT', 0, 0)).to.equal(0);
+            expect(calculateNumber('SUBTRACT', 1.2, 0)).to.equal(1);
         });
     });
 
     // Testing for DIVIDE operations
     describe('DIVIDE', function() {
         it('should return 2 when inputs are 6 and 3', function() {
-            assert.strictEqual(calculateNumber('DIVIDE', 6, 3), 2);
+            expect(calculateNumber('DIVIDE', 6, 3)).to.equal(2);
         });
 
         it('should return 3. when inputs are 8.9 and 3.1', function() {
-            assert.strictEqual(calculateNumber('DIVIDE', 8.9, 3.1), 3);
+            expect(calculateNumber('DIVIDE', 8.9, 3.1)).to.equal(3);
         });
 
         it('should handle negative numbers correctly', function() {
-            assert.strictEqual(calculateNumber('DIVIDE', -8.9, 3.1), -3);
+            expect(calculateNumber('DIVIDE', -8.9, 3.1)).to.equal(-3);
         });
 
         it('should handle zero correctly', function() {
-            assert.strictEqual(calculateNumber('DIVIDE', 0, 1), 0);
-            assert.strictEqual(calculateNumber('DIVIDE', 6, 0), 'Error');
+            expect(calculateNumber('DIVIDE', 0, 1)).to.equal(0)
+            expect(calculateNumber('DIVIDE', 6, 0)).to.equal('Error');
         });
     });
-
 });
 
 // To test, run:
