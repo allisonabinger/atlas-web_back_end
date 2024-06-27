@@ -4,7 +4,7 @@ const app = express()
 
 app.get('/', (req, res) => {
     console.log('Endpoint "/" accessed.');
-    res.status(400).send('Welcome to the payment system');
+    res.status(200).send('Welcome to the payment system');
 })
 
 app.listen(7865, () => {
