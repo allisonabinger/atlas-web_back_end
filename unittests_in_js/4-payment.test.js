@@ -1,32 +1,32 @@
 const sinon = require('sinon');
 const { expect } = require('chai');
-const sendPaymentRequestToApi = require('./4-payment')
+const sendPaymentRequestToApi = require('./3-payment')
 const Utils = require('./utils');
 
 describe('sendPaymentRequestToApi', function() {
-    let spy;
+    let stub, consoleSpy;
 
-    this.beforeEach(function() {
-        // spy on calculateNumber
-        spy = sinon.spy(Utils, 'calculateNumber')
+    beforeEach(function() {
+        // stub calcNum to always return 10
+        stub = sinon.stub(Utils, 'calculateNumber').returns(10)
+        // spy on console.log to get output
+        consoleSpy = sinon.spy(console, 'log')
     });
 
-    this.afterEach(function() {
+    afterEach(function() {
         // restore it to orig. state
-        spy.restore();
+        consoleSpy.restore();
+        stub.restore()
     });
 
-    it('should return 163 when inputs are 150 and 13', function() {
-        expect(sendPaymentRequestToApi(150, 13)).to.equal(163);
+    it('should call Utils.calculatenumber with type = SUM, a = 150, b = 13', function() {
+        sendPaymentRequestToApi(150, 13)
+        expect(stub.calledOnceWithExactly('SUM', 150, 13)).to.be.true;
     });
 
-    it('should call utils.calculateNumber once', function() {
+    it('should log the correct message to console', function() {
         sendPaymentRequestToApi(135, 15);
-        expect(spy.calledOnce).to.be.true;
-    });
-
-    it('should call utils.calculateNumber with SUM, 135, and 15', function() {
-        sendPaymentRequestToApi(135, 15);
-        expect(spy.calledWith('SUM', 135, 15)).to.be.true;
+        expect(consoleSpy.calledOnce).to.be.true;
+        expect(consoleSpy.firstCall.args[0]).to.equal('The total is: 10');
     });
 });
