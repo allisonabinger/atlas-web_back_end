@@ -6,12 +6,12 @@ const Utils = require('./utils');
 describe('sendPaymentRequestToApi', function() {
     let spy;
 
-    this.beforeEach(function() {
+    beforeEach(function() {
         // spy on calculateNumber
         spy = sinon.spy(Utils, 'calculateNumber')
     });
 
-    this.afterEach(function() {
+    afterEach(function() {
         // restore it to orig. state
         spy.restore();
     });
