@@ -1,6 +1,7 @@
 // test suite for calculateNumber in 0-calcul.js using chai
+
 const { expect } = require('chai');
-const calculateNumber = require('./1-calcul');
+const calculateNumber = require('./2-calcul_chai');
 
 describe('calculateNumber', function() {
 
@@ -12,32 +13,38 @@ describe('calculateNumber', function() {
     // Testing for SUM operations
     describe('SUM', function() {   
         it('should return 4 when inputs are 1 and 3', function() {
-            assert.strictEqual(calculateNumber('SUM', 1, 3), 4);
+            const result = calculateNumber('SUM', 1, 3);
+            expect(result).to.equal(4);
         });
 
         it('should return 5 when inputs are 1 and 3.7', function() {
-            assert.strictEqual(calculateNumber('SUM', 1, 3.7), 5);
+            const result = calculateNumber('SUM', 1, 3.7);
+            expect(result).to.equal(5);
         });
 
         it('should return 5 when inputs are 1.2 and 3.7', function() {
-            assert.strictEqual(calculateNumber('SUM', 1.2, 3.7), 5);
+            const result = calculateNumber('SUM', 1.2, 3.7);
+            expect(result).to.equal(5);
         });
 
         it('should return 6 when inputs are 1.5 and 3.7', function() {
-            assert.strictEqual(calculateNumber('SUM', 1.5, 3.7), 6);
+            const result = calculateNumber('SUM', 1.5, 3.7);
+            expect(result).to.equal(6);
         });
 
         it('should handle negative numbers correctly', function() {
-            assert.strictEqual(calculateNumber('SUM', -1.5, -3.7), -5);
-            assert.strictEqual(calculateNumber('SUM', -1.2, -3.7), -5);
+            const result1 = calculateNumber('SUM', -1.5, -3.7);
+            const result2 = calculateNumber('SUM', -1.2, -3.7);
+            expect(result1, result2).to.equal(-5);
         });
 
         it('should handle zero correctly', function() {
-            assert.strictEqual(calculateNumber('SUM', 0, 0), 0);
-            assert.strictEqual(calculateNumber('SUM', 1.2, 0), 1);
+            const result1 = calculateNumber('SUM', 0, 0);
+            const result2 = calculateNumber('SUM', -1.2, 0);
+            expect(result1).to.equal(0);
+            expect(result2).to.equal(-1)
         });
     });
-
     // Testing for SUBTRACT operations
     describe('SUBTRACT', function() {
         it('should return 2 when inputs are 5 and 3', function() {

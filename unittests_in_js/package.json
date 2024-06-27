@@ -1,17 +1,16 @@
 {
   "name": "unittests_in_js",
   "version": "1.0.0",
-  "description": "0-calcul.js",
-  "main": "0-calcul.js",
+  "description": "Unittests in Javascript: A project for utilizing Mocha, Chai, and other test modules for unittesting",
+  "main": "index.js",
   "scripts": {
-    "test": "chai",
-    "test-mocha": "mocha"
+    "test": "mocha"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "chai": "^5.1.1",
+    "chai": "^4.3.4",
     "mocha": "^10.5.2"
   }
 }
