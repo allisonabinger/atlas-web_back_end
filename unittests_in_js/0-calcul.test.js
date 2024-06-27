@@ -30,3 +30,17 @@ describe('calculateNumber', function() {
         assert.strictEqual(calculateNumber(1.2, 0), 1);
     });
 });
+
+// To test, run:
+// npm test 0-calcul.test.js
+//
+// expected output:
+// 
+// > task_0@1.0.0 test /root
+// > ./node_modules/mocha/bin/mocha "0-calcul.test.js"
+//      calculateNumber
+//          ✓ ...
+//          ✓ ...
+//          ✓ ...
+//
+//      6 passing (10ms)
