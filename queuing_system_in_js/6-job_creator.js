@@ -11,7 +11,7 @@ const job = queue.create('push_notification_code', jobData);
 
 // enqueue is fired when the job is successfully enqueued in the queue
 job.on('enqueue', () => {
-    console.log(`Notification job create: ${job.id}`);
+    console.log(`Notification job created: ${job.id}`);
 });
 
 // complete is fired when job is successfully processed
