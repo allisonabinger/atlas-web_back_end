@@ -8,7 +8,7 @@ client.on('connect', () => {
 
 // log error for unsuccessful connection
 client.on('error', (error) => {
-    console.error(`Redis client not conencted to server: ${error.message}`)
+    console.error(`Redis client not connected to server: ${error.message}`)
 });
 
 client.subscribe('holberton school channel');
