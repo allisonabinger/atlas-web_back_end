@@ -15,15 +15,15 @@ function getItemById(id) {
     return listProducts.find(item => item.id === id);
 }
 
-//server setup
+/////////////////// server setup
 
 const app = express();
 const port = 1245;
 
 const redisClient = redis.createClient();
-const getAsync = promisify(redisClient.get).bind(redisclient);
+const getAsync = promisify(redisClient.get).bind(redisClient);
 
-// redis stock reservation
+/////////////////// redis stock reservation
 
 function reserveStockById(itemId, stock) {
     redisClient.set(`item.${itemId}`, stock);
@@ -34,13 +34,15 @@ async function getCurrentReservedStockById(itemId) {
     return parseInt(reservedStock) || 0;
 }
 
-// server start
+//////////////////// server start
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
 
 
-// routes
+/////////////////// routes
+
+// list all products
 app.get('/list_products', (req, res) => {
     res.json(listProducts.map(item => ({
         itemId: item.id,
@@ -50,10 +52,12 @@ app.get('/list_products', (req, res) => {
     })));
 });
 
+// get product by item id
 app.get('/list_products/:itemId', async (req, res) => {
     const itemId = parseInt(req.params.itemId);
     const item = getItemById(itemId);
 
+    // item doesn't exist
     if (!item) {
         return res.json({ status: 'Product not found' });
     }
@@ -68,4 +72,23 @@ app.get('/list_products/:itemId', async (req, res) => {
         initialAvailableQuantity: item.stock,
         currentQuantity: currentQuantity
     });
+});
+
+// reserve product by itemid
+app.get('/reserve_product/:itemId', async (req, res) => {
+    const itemId = parseInt(req.params.itemId);
+    const item = getItemById(itemId);
+
+    // item doesn't exist
+    if (!item) {
+        return res.json({ status: 'Product not found' });
+    }
+
+    const currentReservedStock = await getCurrentReservedStockById(itemId);
+    if (currentReservedStock >= item.stock) {
+        return res.json({ status: 'Not enough stock available', itemId: itemId });
+    }
+
+    reserveStockById(itemId, currentReservedStock + 1);
+    res.json({ status: 'Reservation confirmed', itemId: itemId });
 });
