@@ -10,8 +10,6 @@ This repository hosts the all of the back-end concepts that I worked with while 
 # Tech Stack
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![MySQL](https://img.shields.io/badge/mysql-%2300000f.svg?style=for-the-badge&logo=mysql&logoColor=white)
 
-**THIS LIST IS INCOMPLETE UNTIL GRADUATION**
-
 &nbsp;
 &nbsp;
 
@@ -55,30 +53,6 @@ Click on any of the links to be taken to the project.
 
 #### [ES6_promise](ES6_promise/)
 *Promises for managing asynchronous operations in JavaScript ES6*
-
-
-**THIS LIST IS INCOMPLETE UNTIL GRADUATION**
-
-# Highlighted Projects
-
-## [Project Name](project_link)
-Project Description - concepts, frameworks, etc. Include task prompts, challenges, or other details and applications. 
-
-### Project Code Example and Explanation
-```
-{
-	// insert code here
-}
-
-(explanation of code)
-```
-```
-{
-	// insert code here
-}
-
-(explanation of code)
-```
 
 
 &nbsp;
